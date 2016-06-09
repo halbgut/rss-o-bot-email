@@ -9,11 +9,11 @@ module.exports = function email (config) {
   )
   const sendmail = Rx.Observable.fromNodeCallback(transporter.sendMail.bind(transporter))
   const to = config['email-recipients'].join(', ')
-  return (subject, text) =>
+  return (subject, url, title) =>
     debug(`Sending email to ${to}`) ||
     sendmail({
-      from: `RSS-o-Bot <${os.userInfo().username}@${os.hostname()}>`,
-      html: `<a href="${text}">text</a>`,
-      subject, text, to
+      from: config['email-from'] || `RSS-o-Bot <${os.userInfo().username}@${os.hostname()}>`,
+      html: `<a href="${url}">${title}</a>`,
+      subject, text: `${title}: ${url}`, to
     })
 }

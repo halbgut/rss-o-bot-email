@@ -1,14 +1,14 @@
 # RSS-o-Bot Telegram
 
-Send RSS-o-Bot Notifications over Telegram.
+Send RSS-o-Bot notifications over email.
 
 ## Configuraion
 
-This package require the following options inside your RSS-o-Bot settings (.rss-o-bot):
+All configuration except `email-recipients` is optional.
 
-### telegram-api-token
-A Telegram API token. It can be retrieved, by writting a message `/start` to `@BotFather`. The rest will be explained by the Bot Father. Notifications will be sent from the Bot if you include `telegram` in your `notification-methods`, set this option and set a `telegram-recipients`.
+### email-recipients
+A JSON-Array of email-addresses, to send notifications to.
 
-### telegram-recipients
-An array of Telegram user IDs. User IDs may be retrieved using the `rss-o-bot poll-telegram` command. Check the description above for more information.
+### email-configuration
+An optional configuration object or string as defined by [nodemailer.createTransport](https://github.com/nodemailer/nodemailer). Defaults to `{ direct: true }`.
 
