@@ -1,6 +1,6 @@
 # RSS-o-Bot Telegram
 
-Send RSS-o-Bot notifications over email.
+Send [RSS-o-Bot](https://github.com/Kriegslustig/rss-o-bot) notifications over email.
 
 ## Configuraion
 
