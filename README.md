@@ -1,4 +1,4 @@
-# RSS-o-Bot Telegram
+# RSS-o-Bot Email
 
 Send [RSS-o-Bot](https://github.com/Kriegslustig/rss-o-bot) notifications over email.
 

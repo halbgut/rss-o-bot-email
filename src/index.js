@@ -5,14 +5,14 @@ const debug = require('debug')('rss-o-bot')
 
 module.exports = function email (config) {
   const transporter = nodemailer.createTransport(
-    config['email-configuration'] || { direct: true, debug: true, logger: true }
+    config.get('email-configuration') || { direct: true, debug: true, logger: true }
   )
   const sendmail = Rx.Observable.fromNodeCallback(transporter.sendMail.bind(transporter))
-  const to = config['email-recipients'].join(', ')
+  const to = config.get('email-recipients').join(', ')
   return (subject, url, title) =>
     debug(`Sending email to ${to}`) ||
     sendmail({
-      from: config['email-from'] || `RSS-o-Bot <${os.userInfo().username}@${os.hostname()}>`,
+      from: config.get('email-from') || `RSS-o-Bot <${os.userInfo().username}@${os.hostname()}>`,
       html: `<a href="${url}">${title}</a>`,
       subject, text: `${title}: ${url}`, to
     })
